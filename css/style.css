@@ -106,7 +106,7 @@ textarea:hover {
 input[type="text"]:valid,
 input[type="email"]:valid,
 input[type="password"]:valid,
-textarea:valid {
+textarea:valid + label {
   box-shadow: inset 0 0 2px rgba(154, 154, 154, 0.52);
 }
 input[type="text"]:valid + label,
@@ -799,11 +799,9 @@ textarea:focus {
 .other__item--news {
   margin-right: 25px;
   background: #fff url("../img/index/strawberry-background.jpg") no-repeat;
-  background-size: 100% 100%;
 }
 .other__item--newsletter {
   background: #f8f7f4 url("../img/index/post-background.jpg") no-repeat;
-  background-size: 100% 100%;
 }
 .other__title {
   font-size: 16px;
@@ -837,6 +835,7 @@ textarea:focus {
   margin-left: 6px;
 }
 .other__form input {
+  height: 24px;
   margin-right: 10px;
   width: 346px;
   padding: 10px 10px 9px;
@@ -1026,13 +1025,21 @@ textarea:focus ~ .feedback__commits {
   animation: bounce 0.6s;
 }
 .overlay-show {
-    display: block;
+  display: block;
 }
 @keyframes bounce {
-  0% { transform: translate(-50%, -2000px); }
-  70% { transform: translate(-50%, 30px); }
-  90% { transform: translate(-50%, -10px); }
-  100% { transform: translateY(-50%, 0); }
+  0% {
+    transform: translate(-50%, -2000px);
+  }
+  70% {
+    transform: translate(-50%, 30px);
+  }
+  90% {
+    transform: translate(-50%, -10px);
+  }
+  100% {
+    transform: translateY(-50%, 0);
+  }
 }
 .breadcrumbs {
   position: relative;
@@ -1074,6 +1081,10 @@ textarea:focus ~ .feedback__commits {
   font-size: 14px;
   line-height: 16px;
   text-decoration: underline;
+}
+.breadcrumbs a:hover,
+.breadcrumbs a:active {
+  color: #ffbc9e;
 }
 .title {
   font-size: 35px;
@@ -1122,7 +1133,7 @@ textarea:focus ~ .feedback__commits {
   display: none;
 }
 .filters__item--sorting option {
-    background-color: #849d8f;
+  background-color: #849d8f;
 }
 .filters__item--range {
   width: 220px;
@@ -1282,9 +1293,21 @@ textarea:focus ~ .feedback__commits {
 }
 .page-list {
   position: relative;
-  margin: 40px 0 30px;
+  margin: 40px 0 0;
+  padding-bottom: 30px;
   text-align: right;
   font-size: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  /*&::after {
+        display: block;
+        position: absolute;
+        content: "";
+        right: 0;
+        bottom: -30px;
+        width: 1146px;
+        height: 1px;
+        background-color: rgba(255, 255, 255, .3);
+    }*/
 }
 .page-list__button {
   display: inline-block;
@@ -1326,16 +1349,6 @@ textarea:focus ~ .feedback__commits {
   cursor: default;
   color: #353535;
   background-color: #fff;
-}
-.page-list::after {
-  display: block;
-  position: absolute;
-  content: "";
-  right: 0;
-  bottom: -30px;
-  width: 1146px;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 .page-footer {
   font-size: 0;
